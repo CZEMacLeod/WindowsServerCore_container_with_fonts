@@ -1,1 +1,3 @@
 FROM tmp_container:temp
+RUN rmdir C:\install && \
+    rmdir C:\windowssource
