@@ -1,10 +1,15 @@
 param (
     [Parameter(Mandatory=$false)][string][Alias("Source-Image","si")]$src_img = "mcr.microsoft.com/dotnet/framework/sdk",
-    [Parameter(Mandatory=$false)][string][Alias("Source-Tag","st")]$src_tag = "4.8-windowsservercore-ltsc2022",
+    [Parameter(Mandatory=$false)][string][Alias("Source-Tag","st")]$src_tag = "4.8.1-windowsservercore-ltsc2022",
     [Parameter(Mandatory=$false)][string][Alias("Destination-Image","di")]$dest_img = "dotnetframeworksdkfonts",
     [Parameter(Mandatory=$false)][string][Alias("Destination-Tag","dt")]$dest_tag = $src_tag,
-    [Parameter(Mandatory=$false)][switch][Alias("Update-WinSxS","u")]$update_winsxs
+    [Parameter(Mandatory=$false)][switch][Alias("Update-WinSxS","u")]$update_winsxs,
+    [Parameter(Mandatory=$false)][switch][Alias("Pull-Image","p")]$pull_image
 )
+
+If ($pull_image) {
+    Invoke-Expression "docker pull $($src_img):$($src_tag)"
+}
 
 $winsxs = "${pwd}\WindowsSource\"
 If (!(test-path $winsxs))
