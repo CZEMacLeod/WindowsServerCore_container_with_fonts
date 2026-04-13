@@ -18,7 +18,7 @@ Other parameters you can pass are
 | parameter | alias | description | default |
 |-----------|-------|-------------|---------|
 | src_img | -si | The source image (including source repository) you want to use for the basis of the image | mcr.microsoft.com/dotnet/framework/sdk |
-| src_tag | -st | The source tag you want to use | 4.8-windowsservercore-ltsc2022 |
+| src_tag | -st | The source tag you want to use | 4.8.1-windowsservercore-ltsc2022 |
 | dest_img | -di | The destination image name (can incllude a repository name, but it won't automatically push) | dotnetframeworksdkfonts |
 | dest_tag | -dt | The destination tag name | *Same as `src_tag`* |
 
